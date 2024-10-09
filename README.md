@@ -19,13 +19,15 @@ We want to build an Azure Function that gets a specific `AwesomeEntity` from tha
 
 ## The Functions
 
-This repo holds an Azure Functions project with 3 Functions:
+This repo holds an Azure Functions project with 3 (actually 4) Functions:
 
 1. `GetAwesomeEntityArray`  
 This Function shows that a `TableInput` binding with a PartitionKey and a RowKey returns an IEnumerable of `AwesomeEntity` instances holding all the entities in the specified partition. One would expect one `AwesomeEntity`, but trying this results in an error as can be seen when looking at the second Azure Function.
 
 2. `GetAwesomeEntityFails`  
-This Function shows that a `TableInput` binding with a PartitionKey and a RowKey errors out when trying to bind it to the `AwesomeEntity` custom entity type.
+This Function shows that a `TableInput` binding with a PartitionKey and a RowKey errors out when trying to bind it to the `AwesomeEntity` custom entity type. This Function is actually split up in two Functions:  
+a. `GetAwesomeEntityFails01` has bare signature  
+b. `GetAwesomeEntityFails02` includes explicit parameters for `partitionKey` and `rowKey` as proposed as a trick by svrooij in [this comment](https://github.com/Azure/azure-functions-dotnet-worker/issues/2320#issuecomment-2065243585) in the GitHub issue.
 
 3. `GetTableEntityWorks`
 This Function shows that a `TableInput` binding with a PartitionKey and a RowKey works when binding it to a `TableEntity`.
