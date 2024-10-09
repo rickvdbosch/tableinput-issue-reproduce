@@ -9,7 +9,7 @@ using TableInputIssue.Helpers;
 
 namespace TableInputIssue
 {
-    public class GetTableEntityWorks(ILogger<GetTableEntityWorks> logger)
+    public class GetTableEntityWorks(ILogger<GetTableEntityWorks> logger, IStartHelper startHelper)
     {
         [Function(nameof(GetTableEntityWorks))]
         public IActionResult Run(
@@ -17,7 +17,7 @@ namespace TableInputIssue
             [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] TableEntity entity, string partitionKey)
         {
             logger.LogInformation("GetTableEntityWorks called");
-            string start = StartHelper.GetStart(partitionKey);
+            string start = startHelper.GetStart(partitionKey);
             return new OkObjectResult($"{start} {entity[nameof(AwesomeEntity.WhatMakesThisSpecial)]}!");
         }
     }

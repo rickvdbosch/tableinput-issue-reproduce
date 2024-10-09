@@ -8,7 +8,7 @@ using TableInputIssue.Helpers;
 
 namespace TableInputIssue
 {
-    public class GetAwesomeEntityFails(ILogger<GetAwesomeEntityFails> logger)
+    public class GetAwesomeEntityFails(ILogger<GetAwesomeEntityFails> logger, IStartHelper startHelper)
     {
         [Function("GetAwesomeEntityFails01")]
         public IActionResult Run01(
@@ -16,7 +16,7 @@ namespace TableInputIssue
             [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] AwesomeEntity entity, string partitionKey)
         {
             logger.LogInformation("GetAwesomeEntityFails01 called");
-            string start = StartHelper.GetStart(partitionKey);
+            string start = startHelper.GetStart(partitionKey);
             return new OkObjectResult($"{start} {entity.WhatMakesThisSpecial}!");
         }
 
@@ -29,7 +29,7 @@ namespace TableInputIssue
             [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] AwesomeEntity entity)
         {
             logger.LogInformation("GetAwesomeEntityFails02 called");
-            string start = StartHelper.GetStart(partitionKey);
+            string start = startHelper.GetStart(partitionKey);
             return new OkObjectResult($"{start} {entity.WhatMakesThisSpecial}! (this was retrieved from rowKey {rowKey})");
         }
     }
