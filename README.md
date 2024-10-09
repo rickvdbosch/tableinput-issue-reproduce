@@ -34,7 +34,7 @@ This Function shows that a `TableInput` binding with a PartitionKey and a RowKey
 
 ## Security
 
-Yes, this repo contains a secret. No, this normally is _not_ recommended. However, this secret is a read-only SaS token for tables only. To ensure reproducing the issue works completely, I choose to add this. The Storage Account the SaS connection string points to is being monitored, and exists in its own shielded environment 😎  
+Yes, this repo contains a secret. No, this normally is _not_ recommended. However, this secret is a read-only SaS token for tables only. To ensure reproducing the issue works completely, I chose to add this. The Storage Account the SaS connection string points to is being monitored, and exists in its own shielded environment 😎  
 
 ### This is fine ...  
 
