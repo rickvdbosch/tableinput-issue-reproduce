@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "StorageConnectionString": "BlobEndpoint=https://pblcstrg001.blob.core.windows.net/;QueueEndpoint=https://pblcstrg001.queue.core.windows.net/;FileEndpoint=https://pblcstrg001.file.core.windows.net/;TableEndpoint=https://pblcstrg001.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=t&srt=o&sp=rl&se=2025-12-31T11:59:59Z&st=2024-10-08T22:00:00Z&spr=https&sig=8nqqizp%2FHne2IE5ImdxRI2cqJCeBTZu%2FbSTP32Y1NGY%3D"
+  }
+}
