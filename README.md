@@ -35,3 +35,6 @@ This Function shows that a `TableInput` binding with a PartitionKey and a RowKey
 ## Security
 
 Yes, this repo contains a secret. No, this normally is _not_ recommended. But to ensure the reproduction works completely, I choose to do so either way. The Storage Account the connection string points to is being monitored, and exists in its own shielded environment 😎
+
+Also, using the `AzureWebJobsStorage` as the storage account to store table entities in is not a best practice. Again, this is a reproduction repo. This is fine ...  
+![This is fine.](https://media.npr.org/assets/img/2023/01/14/this-is-fine_custom-b7c50c845a78f5d7716475a92016d52655ba3115.jpg)
