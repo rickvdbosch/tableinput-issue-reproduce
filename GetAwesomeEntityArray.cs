@@ -12,7 +12,7 @@ namespace TableInputIssue
         [Function(nameof(GetAwesomeEntityArray))]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "awesomeentityarray/{partitionKey}/{rowKey}")] HttpRequest req,
-            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] IEnumerable<AwesomeEntity> entities)
+            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}", Connection = "StorageConnectionString")] IEnumerable<AwesomeEntity> entities)
         {
             logger.LogInformation("GetAwesomeEntityArray called");
             return new OkObjectResult(entities);

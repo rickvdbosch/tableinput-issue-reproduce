@@ -14,7 +14,7 @@ namespace TableInputIssue
         [Function(nameof(GetTableEntityWorks))]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "tableentity/{partitionKey}/{rowKey}")] HttpRequest req,
-            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] TableEntity entity, string partitionKey)
+            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}", Connection = "StorageConnectionString")] TableEntity entity, string partitionKey)
         {
             logger.LogInformation("GetTableEntityWorks called");
             string start = startHelper.GetStart(partitionKey);

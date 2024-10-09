@@ -13,7 +13,7 @@ namespace TableInputIssue
         [Function("GetAwesomeEntityFails01")]
         public IActionResult Run01(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "awesomeentity01/{partitionKey}/{rowKey}")] HttpRequest req,
-            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] AwesomeEntity entity, string partitionKey)
+            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}", Connection = "StorageConnectionString")] AwesomeEntity entity, string partitionKey)
         {
             logger.LogInformation("GetAwesomeEntityFails01 called");
             string start = startHelper.GetStart(partitionKey);
@@ -26,7 +26,7 @@ namespace TableInputIssue
         public IActionResult Run02(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "awesomeentity02/{partitionKey}/{rowKey}")] HttpRequest req,
             string partitionKey, string rowKey,
-            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}")] AwesomeEntity entity)
+            [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}", Connection = "StorageConnectionString")] AwesomeEntity entity)
         {
             logger.LogInformation("GetAwesomeEntityFails02 called");
             string start = startHelper.GetStart(partitionKey);
