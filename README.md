@@ -26,8 +26,8 @@ This Function shows that a `TableInput` binding with a PartitionKey and a RowKey
 
 2. `GetAwesomeEntityFails`  
 This Function shows that a `TableInput` binding with a PartitionKey and a RowKey errors out when trying to bind it to the `AwesomeEntity` custom entity type. This Function is actually split up in two Functions:  
-a. `GetAwesomeEntityFails01` has bare signature  
-b. `GetAwesomeEntityFails02` includes explicit parameters for `partitionKey` and `rowKey` as proposed as a trick by svrooij in [this comment](https://github.com/Azure/azure-functions-dotnet-worker/issues/2320#issuecomment-2065243585) in the GitHub issue.
+a. `GetAwesomeEntityFails01` has the bare signature  
+b. `GetAwesomeEntityFails02` includes explicit parameters for `partitionKey` and `rowKey` _before_ the `HttpTrigger` as proposed as a trick by @svrooij in [this comment](https://github.com/Azure/azure-functions-dotnet-worker/issues/2320#issuecomment-2065243585) on the GitHub issue.
 
 3. `GetTableEntityWorks`
 This Function shows that a `TableInput` binding with a PartitionKey and a RowKey works when binding it to a `TableEntity`.
