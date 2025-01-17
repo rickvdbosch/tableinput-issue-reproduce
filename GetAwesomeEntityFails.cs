@@ -24,8 +24,8 @@ namespace TableInputIssue
         // trick mentioned by svrooij in https://github.com/Azure/azure-functions-dotnet-worker/issues/2320#issuecomment-2065243585
         [Function("GetAwesomeEntityFails02")]
         public IActionResult Run02(
-            string partitionKey, string rowKey,
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "awesomeentity02/{partitionKey}/{rowKey}")] HttpRequest req,
+            string partitionKey, string rowKey,
             [TableInput("AwesomeEntities", "{partitionKey}", "{rowKey}", Connection = "StorageConnectionString")] AwesomeEntity entity)
         {
             logger.LogInformation("GetAwesomeEntityFails02 called");
