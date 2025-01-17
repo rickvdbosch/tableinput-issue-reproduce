@@ -1,0 +1,21 @@
+@hostname=localhost
+@port=7163
+@host={{hostname}}:{{port}}
+
+# Test request for scenario 1: GetAwesomeEntityArray
+GET http://{{host}}/api/awesomeentityarray/here-be/001
+
+###
+
+# Test request for scenario 2a: GetAwesomeEntityFails01
+GET http://{{host}}/api/awesomeentity01/here-be/002
+
+###
+
+# Test request for scenario 2b: GetAwesomeEntityFails02
+GET http://{{host}}/api/awesomeentity02/here-be/003
+
+###
+
+# Test request for scenario 3: GetTableEntityWorks
+GET http://{{host}}/api/tableentity/you-shall/001
